@@ -14,7 +14,7 @@ class InstallCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'larascord:install
+    protected $signature = 'larascordmc:install
                             {--composer=global : Absolute path to the Composer binary which should be used to install packages}';
 
     /**
@@ -22,11 +22,12 @@ class InstallCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Use this command to install Larascord.';
+    protected $description = 'Use this command to install LarascordMC.';
 
     private ?string $clientId;
     private ?string $clientSecret;
     private ?string $prefix;
+    private ?string $dbMinecraft;
 
     /**
      * Execute the console command.
