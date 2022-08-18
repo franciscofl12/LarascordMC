@@ -1,6 +1,6 @@
 <?php
 
-namespace Jakyeru\Larascord\Console\Commands;
+namespace Franciscofl12\LarascordMC\Console\Commands;
 
 use Illuminate\Console\Command;
 

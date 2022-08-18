@@ -1,6 +1,6 @@
 <?php
 
-namespace Jakyeru\Larascord\Http\Controllers;
+namespace Franciscofl12\LarascordMC\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;

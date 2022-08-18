@@ -1,6 +1,6 @@
 <?php
 
-namespace Jakyeru\Larascord\Console\Commands;
+namespace FranciscoFL12\LarascordMC\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
@@ -27,7 +27,7 @@ class InstallCommand extends Command
     private ?string $clientId;
     private ?string $clientSecret;
     private ?string $prefix;
-    private ?string $dbMinecraft;
+    private ?string $prefix;
 
     /**
      * Execute the console command.

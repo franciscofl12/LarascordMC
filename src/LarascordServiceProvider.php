@@ -1,6 +1,6 @@
 <?php
 
-namespace Jakyeru\Larascord;
+namespace Franciscofl12\LarascordMC;
 
 use Illuminate\Support\ServiceProvider;
 
