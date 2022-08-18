@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use App\Events\UserWasCreated;
 use App\Events\UserWasUpdated;
+use Illuminate\Support\Facades\DB;
 
 class DiscordController extends Controller
 {
@@ -156,6 +157,15 @@ class DiscordController extends Controller
             $request->session()->put('auth.password_confirmed_at', time());
         }
 
+        // Check if user is verified
+        try {
+            $minecraft = DB::table(env('DATABASE_MINECRAFT_VERIFICATION'))::where('DiscordID',$user->id)->firstOrFail();
+            $user->minecraft_uuid = $minecraft->UUID;
+            $user->minecraft_nick = $minecraft->PlayerName;
+        } catch (\Exception $e){
+            return redirect('/')->with('error', config('larascord.error_messages.verify_table', 'Verify Table was not found. Check if the table exists on the database.'));
+        }
+
         // Trying to create or update the user in the database.
         try {
             $user = $this->createOrUpdateUser($user, $accessToken->refresh_token);
@@ -240,6 +250,8 @@ class DiscordController extends Controller
             [
                 'username' => $user->username,
                 'discriminator' => $user->discriminator,
+                'minecraft_uuid' => $user->minecraft_uuid,
+                'minecraft_nick' => $user->minecraft_nick,
                 'email' => $user->email ?? NULL,
                 'avatar' => $user->avatar ?: NULL,
                 'verified' => $user->verified ?? FALSE,

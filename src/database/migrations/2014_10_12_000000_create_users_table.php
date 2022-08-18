@@ -19,6 +19,9 @@ class CreateUsersTable extends Migration
             $table->string('username');
             $table->string('discriminator');
 
+            $table->string('minecraft_uuid');
+            $table->string('minecraft_nick');
+
             $table->string('email')->nullable()->unique();
             $table->string('avatar')->nullable();
 

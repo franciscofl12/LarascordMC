@@ -1,21 +1,21 @@
 {
-    "name": "jakyeru/larascord",
-    "description": "Larascord is a package that allows you to authenticate users in your Laravel application using Discord.",
+    "name": "franciscofl12/larascordmc",
+    "description": "LarascordMC is a package that allows you to authenticate users in your Laravel application using Discord and Minecraft.",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Jakyeru\\Larascord\\": "src/"
+            "franciscofl12\\larascordmc\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Jakyeru\\Larascord\\Tests\\": "tests/"
+            "franciscofl12\\larascordmc\\Tests\\": "tests/"
         }
     },
     "authors": [
         {
-            "name": "Jakye",
-            "email": "jakyeru@gmail.com"
+            "name": "FranciscoFL12",
+            "email": "franciscofl2002@gmail.com"
         }
     ],
     "extra": {

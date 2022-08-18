@@ -71,6 +71,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Verify Table
+    |--------------------------------------------------------------------------
+    |
+    | Table where minecraft information should be saved.
+    | For example, table called "VerifiedAccounts" where all users that has already verified are there.
+    |
+    */
+
+    'verifytable' => env('DATABASE_MINECRAFT_VERIFICATION', 'Verify'),
+
+    /*
+    |--------------------------------------------------------------------------
     | OAuth2 Prompt - "none" or "consent"
     |--------------------------------------------------------------------------
     |
@@ -112,7 +124,8 @@ return [
         'database_error' => 'There was an error with the database. Please try again later.',
         'missing_guilds_scope' => 'The "guilds" scope is required.',
         'authorization_failed_guilds' => 'Couldn\'t get the servers you\'re in.',
-        'not_member_guild_only' => 'You are not allowed to login.'
+        'not_member_guild_only' => 'You are not allowed to login.',
+        'verify_table' => 'Verify Table was not found. Check if the table exists on the database.'
     ],
 
 ];

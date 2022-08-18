@@ -39,6 +39,7 @@ class InstallCommand extends Command
         $this->clientId = $this->ask('What is your Discord application\'s client id?');
         $this->clientSecret = $this->ask('What is your Discord application\'s client secret?');
         $this->prefix = $this->ask('What route prefix should Larascord use?', 'larascord');
+        $this->dbMinecraft = $this->ask('What is your Verification Database?');
 
         // Validating the user's input
         try {$this->validateInput();} catch (\Exception $e) {$this->error($e->getMessage()); return;}
@@ -101,12 +102,14 @@ class InstallCommand extends Command
             'clientId' => ['required', 'numeric'],
             'clientSecret' => ['required', 'string'],
             'prefix' => ['required', 'string'],
+            'dbMinecraft' => ['required', 'string'],
         ];
 
         $validator = Validator::make([
             'clientId' => $this->clientId,
             'clientSecret' => $this->clientSecret,
             'prefix' => $this->prefix,
+            'dbMinecraft' => this->dbMinecraft,
         ], $rules);
 
         $validator->validate();
@@ -136,6 +139,9 @@ class InstallCommand extends Command
 
         (new Filesystem())->append('.env',PHP_EOL);
         (new Filesystem())->append('.env','LARASCORD_SCOPE=identify&email');
+
+        (new Filesystem())->append('.env',PHP_EOL);
+        (new Filesystem())->append('.env','DATABASE_MINECRAFT_VERIFICATION='.$this->dbMinecraft);
     }
 
     /**
